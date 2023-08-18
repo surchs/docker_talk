@@ -3,14 +3,22 @@ import requests
 
 print("hello world")
 
-while True:
+
+def hello(port: int) -> None:
     try:
-        response = requests.get("http://container_a:8000")
+        response = requests.get(f"http://container_a:{port}")
         if response.status_code == 200:
-            print("Request to container_a succeeded!")
+            print(f"Request to container_a on port {port} succeeded!")
         else:
-            print("Request to container_a failed with status code:", response.status_code)
+            print(f"Request to container_a on port {port} failed with status code:", response.status_code)
     except requests.ConnectionError:
-        print("Failed to connect to container_a")
+        print(f"Failed to connect to container_a on port {port}")
+
+
+
+
+while True:
+    hello(9000)
+    hello(8000)
     
     time.sleep(5)
