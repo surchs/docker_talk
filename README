@@ -1,0 +1,10 @@
+Do this:
+
+1. Go and build the API: `docker build -t silly/api . -f Dockerfile_api` (from inside that dir)
+2. Go and build the listener: `docker build -t silly/listen . -f Dockerfile_listen` (from inside that dir)
+3. Run docker compose up
+
+Now observe that:
+
+the listener can only reach the API on port 8000, not 9000
+
