@@ -1,0 +1,14 @@
+# Use an official Python runtime as the base image
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir requests
+
+# Copy the script into the container
+COPY send_requests.py /app/send_requests.py
+
+# Run the script when the container launches
+CMD ["python", "-u", "send_requests.py"]

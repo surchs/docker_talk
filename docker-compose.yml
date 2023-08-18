@@ -1,0 +1,18 @@
+version: '3'
+services:
+  container_a:
+    image: silly/api
+    ports:
+      - "9000:8000"
+    networks:
+      - my_network
+
+  container_b:
+    image: silly/listen
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
+
